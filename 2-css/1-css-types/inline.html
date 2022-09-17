@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Anonymous Block Box</title>
+</head>
+
+<body style="
+font: 1.2em Helvetica, Arial, sans-serif;
+margin: 20px;
+padding: 0;"
+>
+    <section style="
+        width: 90%;
+        max-width: 700px;
+        border: 1px solid #4d4e53;
+        border-radius: 2px;
+        padding: 10px 14px 10px 10px;
+        margin-bottom: 10px;
+    ">
+        <div>
+            I am wrapped in an anonymous box
+            <p style="background-color: rebeccapurple;color: white;">I am in the paragraph</p>
+            I am wrapped in an anonymous box.
+        </div>
+    </section>
+    <textarea style="
+            font-family: monospace;
+            display: block;
+            margin-bottom: 10px;
+            background-color: #f4f7f8;
+            border: none;
+            border-left: 6px solid #558abb;
+            color: #4d4e53;
+            width: 90%;
+            max-width: 700px;
+            padding: 10px 10px 0px;
+            font-size: 90%;
+            /* equivalent to textarea:nth-of-type(1)*/
+            height: 120px;
+    ">
+    .example > * {
+        background-color: rebeccapurple;
+        color: white;
+    }
+    </textarea>
+
+    <textarea style="
+            font-family: monospace;
+            display: block;
+            margin-bottom: 10px;
+            background-color: #f4f7f8;
+            border: none;
+            border-left: 6px solid #558abb;
+            color: #4d4e53;
+            width: 90%;
+            max-width: 700px;
+            padding: 10px 10px 0px;
+            font-size: 90%;
+            /* equivalent to textarea:nth-of-type(2)*/
+            height: 160px;
+    ">
+        <div class="example">
+            I am wrapped in an anonymous box 
+            <p>I am in the paragraph</p>
+            I am wrapped in an anonymous box.
+        </div></textarea>
+    <div style="
+        text-align: right;
+        width: 90%;
+        max-width: 700px;
+        padding: 5px 10px 5px 26px;
+        font-size: 100%;
+    ">
+        <input  id="reset" type="button" value="Reset" />
+    </div>
+</body>
+</html>
