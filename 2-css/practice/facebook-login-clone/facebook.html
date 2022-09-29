@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="icon" type="image/png" href="./static/img/favicon.png">
+    <script src="./static/js/tailwind-3.1.8.js"></script>
+</head>
+<body>
+    <main class="bg-[#EDF1F6] container-lg mx-auto h-screen">
+        <!--Header-->
+        <section id="header" class="flex px-2 pt-2 bg-[#3B5998] h-24 justify-between items-center">
+            <!--Logo-->
+            <img src="./static/img/fb-logo.png" class="h-20">
+            <!--User/pass--> 
+            <div class="flex justify-around items-center space-x-4">
+                <div class="flex flex-col justify-start items-start space-y-1 pb-6">
+                    <p class="text-sm text-white">Email or phone</p>
+                    <input type="text" class="h-6">
+                </div>
+                <div class="flex flex-col justify-start items-start space-y-1">
+                    <p class="text-sm text-white">Password</p>
+                    <input type="password" class="h-6">
+                    <a href="#" class="text-sm text-gray-600">Forgot account?</a>
+                </div>
+                <button class="w-16 h-6 border border-black text-sm text-white rounded-xs">Log in</button>
+            </div>
+        </section>  
+        <!--Content-->     
+        <section class="flex mx-2 mt-8 items-start">
+            <div class="flex flex-col w-3/5 pt-24 px-8 space-y-6">
+                <p class="tracking-wide mb-2 text-4xl max-w-2xl">Connect with friends and the world around you on Facebook</p>
+                <div class="flex justify-start items-center">
+                    <img src="./static/img/example-icon.png" class="h-12 pr-8">
+                    <p class="text-bold text-xl font-bold">See photos and updates</p>
+                    <p class="pl-4 font-light text-xl">from friends in News Feed</p>
+                </div>
+                <div class="flex justify-start items-center">
+                    <img src="./static/img/example-icon.png" class="h-12 pr-8">
+                    <p class="text-bold text-xl font-bold">Share what's new</p>
+                    <p class="pl-4 font-light text-xl">in your life on your timeline</p>
+                </div>
+                <div class="flex justify-start items-center">
+                    <img src="./static/img/example-icon.png" class="h-12 pr-8">
+                    <p class="text-bold text-xl font-bold">Find more</p>
+                    <p class="pl-4 font-light text-xl">of what you're looking for with Facebook Search</p>
+                </div>
+            </div>
+            <div class="flex w-2/5 pr-16 flex-col justify-start space-y-4">
+                <p class="text-6xl">Sign Up</p>
+                <p class="text-2xl font-light pb-4">It's free and always will be</p>
+                <div class="flex space-x-2">
+                    <input type="text" placeholder="First name" class="border indent-4	w-1/2 h-10 rounded-md">
+                    <input type="text" placeholder="Last name" class="border indent-4 w-1/2 h-10 rounded-md">    
+                </div>
+                <input type="text" placeholder="Mobile number or email" class="border indent-4 h-10 rounded-md">
+                <input type="text" placeholder="New password" class="border indent-4 h-10 rounded-md">
+                <p class="text-2xl font-light pt-2">Birthday</p>
+                <div class="flex">
+                    <select type="text" class="border w-1/6 h-10">
+                        <option>1</option>
+                    </select>
+                    <select type="text" class="border w-1/6 h-10">
+                        <option>1</option>
+                    </select>
+                    <select type="text" class="border w-1/6 h-10">
+                        <option>1</option>
+                    </select>
+                    <a href="#" class="text-md w-1/2 mx-2">Why do I need to provide my birthday?</a>
+                </div>
+                <div class="flex">
+                    <input type="radio" name="sex" id="female">
+                    <label for="female" class="text-md px-4">Female</label>
+                    <input type="radio" name="sex" id="male" class="ml-16">
+                    <label for="male" class="text-md px-4">Male</label>
+                </div>
+                <div class="text-sm font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime culpa, sed eaque et numquam, ratione quibusdam consequatur a asperiores temporibus adipisci deserunt fugit, inventore minus ut similique itaque voluptatum.</div>
+                <button class="w-1/2 h-12 bg-gradient-to-b from-green-500
+                            to-green-600 rounded-md border-2 text-xl text-white font-bold">Create account</button>
+
+                <div class="border-b border-1 pt-4"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
