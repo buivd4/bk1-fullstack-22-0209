@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla</title>
+    <script src="./js/tailwind-3.1.8.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Tesla';
+            src: url('font/TESLA.ttf');
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                // Some useful comment
+                fontFamily: {
+                'tesla': ['Tesla', 'sans-serif'],
+                },
+            },
+        }
+    </script>
+
+</head>
+
+<body>
+    <main class="container-lg w-screen h-screen bg-[url('./img/bg.jpg')] bg-cover">
+        <header class="flex h-16 w-full items-center justify-between px-4">
+            <p class="font-tesla text-4xl text-white uppercase">tesla</p>
+            <ul class="flex list-none items-center justify-between space-x-4">
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Model S</a></li>
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Model 3</a></li>
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Model X</a></li>
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Model Y</a></li>
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Roaster</a></li>
+                <li ><a href="#" class="font-sans uppercase text-md text-white">Energy</a></li>
+            </ul>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="#" class="font-sans uppercase text-md text-white">shop</a>
+                <a href="#" class="font-sans uppercase text-md text-white">sign in</a>
+                <img src="./img/menu.svg" class="h-6">
+            </div>
+        </header>
+        <div role="main-content" class="flex flex-col pt-32 items-center justify-center h-1/2 space-y-6 ">
+            <p class="font-sans uppercase text-5xl text-bold text-white relative mb-2">Model S</p>
+            <div class="flex items-start justify-center space-x-6 w-full">
+                <button class="border-2 border-white h-10 w-1/4 rounded-3xl uppercase text-white hover:bg-white hover:text-black"> Custom Order</button>
+                <button class="border-2 border-white h-10 w-1/4 rounded-3xl uppercase text-white hover:bg-white hover:text-black"> Existing Inventory</button>
+            </div>
+            <a href=# class="font-sans underline text-xl text-white"> Visit a store</a>
+        </div>
+
+        <footer></footer>
+    </main>
+</body>
+
+</html>

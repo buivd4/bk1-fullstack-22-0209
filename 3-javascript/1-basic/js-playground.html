@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS PlayGround</title>
+</head>
+<body>
+    <main>
+        <p id="bkacad"></p>
+    </main>
+    <script>
+        function sum(a,b){
+            var tong=a+b;
+            return tong;
+        }
+        var a=10, b=5;
+        var c=sum(a,b);
+        // 0 1 2 3 .. 6
+        var ngayThuBaoNhieu=10;
+        switch (ngayThuBaoNhieu){
+            case 0:
+                console.log("Chu Nhat");
+                break;
+            case 1:
+                console.log("Thu hai");
+                break;
+            case 2:
+                console.log("Thu ba");
+                break;
+
+            case 6:
+                console.log("Thu bay");
+                break;
+            
+            default:
+                console.log("Error: "+ ngayThuBaoNhieu + " khong thoa man!")
+        }
+    </script>
+</body>
+</html>
+
+
+input = Object()
+input = {
+    username: "xxx",
+    password: "yyy"
+}
+-> backend -> axios / http
+body API
+axios.post("url", input)..
+
+response = [
+    {
+        ten: "A",
+        diem: 10,
+    },
+    {
+        ten: "B",
+        diem: 9
+    }
+]
+
+response.foreach(item -> {...})
+
+react
+thu vien
