@@ -11,58 +11,40 @@
         <p id="bkacad"></p>
     </main>
     <script>
-        function sum(a,b){
-            var tong=a+b;
-            return tong;
+        function methodNoi(){
+            console.log("Xin chao!");
         }
-        var a=10, b=5;
-        var c=sum(a,b);
-        // 0 1 2 3 .. 6
-        var ngayThuBaoNhieu=10;
-        switch (ngayThuBaoNhieu){
-            case 0:
-                console.log("Chu Nhat");
-                break;
-            case 1:
-                console.log("Thu hai");
-                break;
-            case 2:
-                console.log("Thu ba");
-                break;
+        // Doi tuong
+        var hocsinh = {
+            ho: "Nguyen",
+            ten: "A",
+            tuoi: 22,
+            gioi_tinh: "Nam",
+            noi: methodNoi,
+        };
+        console.log(hocsinh.ho);
+        console.log(hocsinh["ho"]);
+        hocsinh.noi();
 
-            case 6:
-                console.log("Thu bay");
-                break;
-            
-            default:
-                console.log("Error: "+ ngayThuBaoNhieu + " khong thoa man!")
+
+        class HocSinh{
+            constructor(arg_ho, arg_ten, arg_tuoi){
+                this.ho = arg_ho;
+                this.ten = arg_ten;
+                this.tuoi = arg_tuoi;
+            }
+            noi(){
+                console.log("Xin chao!");
+            }
+            hoVaTen(){
+                console.log(this.ho + " " + this.ten);
+            }
         }
+
+        var hs1 = new HocSinh("Nguyen", "B", 23);
+        hs1.hoVaTen();
+        var hs2 = new HocSinh("Tran", "C", 23);
+        hs2.hoVaTen();
     </script>
 </body>
 </html>
-
-
-input = Object()
-input = {
-    username: "xxx",
-    password: "yyy"
-}
--> backend -> axios / http
-body API
-axios.post("url", input)..
-
-response = [
-    {
-        ten: "A",
-        diem: 10,
-    },
-    {
-        ten: "B",
-        diem: 9
-    }
-]
-
-response.foreach(item -> {...})
-
-react
-thu vien
