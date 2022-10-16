@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">This is original div</div>
+    <input name="number" value="100">
+    <input name="number" value="200">
+    <input name="number" value="300">
+    <script>
+        function GetById() {
+            document.getElementById("div1").innerHTML = document.getElementById("num").innerHTML;
+        }
+        //GetById()
+        function GetByName() {
+            // Truy cap den phan tu co thuoc tinh name = number
+            var nums = document.getElementsByName("number"); // Tra ve list elements
+
+            var res = '';
+            for (var i = 0; i < nums.length; i++) {
+                // voi moi ky tu o trong bien nums
+                res += nums[i].value + "<br/>"; // tuong ung la 100, 200, 300
+                // Concat gia tri va dat vao div1
+                document.getElementById("div1").innerHTML = res;
+            }
+        }
+        //GetByName()
+        document.getElementById("div1").innerHTML = "1000"
+    </script>
+</body>
+
+</html>

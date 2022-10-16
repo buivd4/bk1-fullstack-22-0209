@@ -79,11 +79,14 @@ console.log(index2);
 */
 
 // Sap xep mang
-// Luu y: Mac dinh, co che sap xep cua ham .sort() la bien doi ve string, sau do so sanh
+// Luu y: Mac dinh, co che sap xep cua ham .sort() 
+// la bien doi ve string, sau do so sanh
 var numbers = [0, 1 , 2, 3, 10, 20, 30 ];
 numbers.sort();
 console.log(numbers);
-// De sort theo do lon cua number; can truyen mot ham comparefunction vao nhu sau:
+// 0 1 10 2 20 3 30
+// De sort theo do lon cua number; 
+// can truyen mot ham comparefunction vao nhu sau:
 // array.sort(comparefunction)
 var numbers = [0, 1 , 2, 3, 10, 20, 30 ];
 numbers.sort( function( a , b){
@@ -99,6 +102,9 @@ var scores = [
 ];
 // sort numbers in ascending order
 scores.sort((a, b) => a - b);
+scores.sort(function (a, b){
+    b-a
+})
 console.log(scores);
 
 // ForEach: Duyet qua tung phan tu
