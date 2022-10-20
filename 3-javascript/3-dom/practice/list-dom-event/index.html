@@ -20,12 +20,30 @@
     Sinh ra một danh sách dựa vào mảng items và hiển thị lên màn hình
             </pre>
         </li>
+        <li>
+            <pre>
+    Với kết quả của phần (1), tạo một form cho phép thêm 1 phần tử vào trong danh sách đã cho
+    Đầu vào:
+            1. Hộp text nhập id
+            2. Hộp text nhập label
+            3. Nút submit -> khi bấm submit sẽ tự động thêm item vào danh sách đang hiển thị
+        </pre>
+        </li>
     </ol>
-
-    <h1>Mảng</h1>
-    <ul id="target-list">
-        No data...
-    </ul>
+    <div>
+        <h1>Nhập liệu</h1>
+        <label for="id">Item's id</label>
+        <input type="text" id="item_id" name="id">
+        <label for="label">Item's label</label>
+        <input type="text" id="item_label" name="label">
+        <button onclick="whenSubmit()">Add item</button>
+    </div>
+    <div>
+        <h1>Mảng</h1>
+        <ul id="target-list">
+            No data...
+        </ul>
+    </div>
     <script src="./app.js"></script>
 </body>
 </html>
