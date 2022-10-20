@@ -1,0 +1,13 @@
+<body>
+    <p>Click the button to make a new Button element</p>
+    <button onclick="myFun()">Click</button>
+    <script>
+        function myFun() {
+            var btn = document.createElement("BUTTON");
+            var t = document.createTextNode("BKACAD"); 
+            btn.appendChild(t);
+            console.log(btn)
+            document.body.appendChild(btn);
+        }
+    </script>
+</body>

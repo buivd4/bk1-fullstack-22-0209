@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting guess</title>
+</head>
+<body>
+    <h1>Greeting</h1>
+    <div id="main-content">
+        Error!
+    </div>
+    <script>
+        function greeting(arr){
+            var output = "";
+            // Cach viet thu nhat
+            var welcome = arr.map(function (elem){
+                return "Welcome "+elem;
+            })
+            // Cach viet thu hai
+            var welcome = arr.map((elem)=>{
+                return "Welcome "+elem;
+            })
+            // Cach viet thu ba
+            var welcome = arr.map(elem => "Welcome "+ elem);
+            
+            // Vi du dung for
+            var welcome = [];
+            for (elem of arr){
+                welcome.push("Welcome " + elem);
+            }
+
+            console.log("Day la welcome: ");
+            console.log(welcome);
+            output = welcome.join("<br>")
+            console.log("Day la output:")
+            console.log(output);
+            return output;
+        }
+        var arr = ["Ram","Radhika","John","Sumit"];
+        document.getElementById("main-content").innerHTML = greeting(arr);
+    </script>
+</body>
+</html>

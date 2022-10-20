@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="position: relative;height: 1000px;width: 1000px;">
+        <div id="box" style="background-color:black; position: relative; left:100; top:0; height: 100px; width: 100px;"></div>
+    </div>
+    <script>
+        var e = document.getElementById("box");
+        e.style.left= "0px";
+        var i =0;
+        setInterval(()=>{
+            e.style.left=i+"px";
+            i=i+10;
+        },100)
+    </script>
+</body>
+</html>
