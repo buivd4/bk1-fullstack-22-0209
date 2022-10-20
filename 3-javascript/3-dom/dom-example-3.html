@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="p">
+        Error...
+    </div>
+    <script>
+        // Creates a new em element
+        var newnode = document.createElement("em"); 
+
+        // To add text to the em element
+        var node = document.createTextNode("Text to add"); 
+
+        // Appending the text node to em element
+        newnode.appendChild(node);
+        
+        // Appending new element to existing element
+        var elem = document.getElementById("p");
+        elem.appendChild(newnode);
+    </script>
+
+</body>
+
+</html>
+
+
+<!--
+    Trước:
+        div <id="p">
+            |- text <Error...>
+    
+    new node:
+        em
+            |- text <Text to add>
+    Sau:
+        div <id="p">
+            |- text <Error...>
+            |- em
+                |- text <Text to add>
+-->
