@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bài tập: Kiểm tra thông tin nhập liệu</h1>
+    <div>
+        <p>Yêu cầu:</p>
+        <ul>
+            <li>Trường nhập thông tin không được để rỗng</li>
+            <li>Trường email phải đúng định dạng. Giả sử có dấu @, username lớn hơn 6 ký tự, domain name lớn hơn 4 ký tự</li>
+            <li>Trường số điện thoại phải có 10 chữ số, không chứa ký tự khác ngoài chữ số</li>
+        </ul>
+    </div>
+    <div>
+        <label for="txt">Nhập thông tin: </label>
+        <input type="text" name="txt" id="txt_inp">
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="txt_email">
+        <label for="phone_num">Số điện thoại: </label>
+        <input type="text" name="phone_num" id="txt_phone">
+        <button onclick="validate()">Kiểm tra</button>
+    </div>
+    <p id="msg"></p>
+    <script>
+        // Kiểm tra nhập liệu
+        function validate(){
+            // Thông báo trả về được đặt ở biến msg;
+            var msg = "OK";
+            // Kiểm tra trường "Nhập thông tin"
+            var txt_val = document.getElementById("txt_inp").value;
+            if (txt_val === null || txt_val === undefined || !txt_val.length>0){
+                msg = "Trường Nhập thông tin chưa chính xác!"
+            }
+            // Kiểm tra trường nhập email
+            var email_val = document.getElementById("txt_email").value;
+            if (!isValidEmail(email_val)){
+                msg = "Trường Email chưa chính xác!"
+            }
+            // Kiểm tra trường số điện thoại
+            var phone_val = document.getElementById("txt_phone").value;
+            if (!isValidPhone(phone_val)){
+                msg = "Trường Số điện thoại chưa chính xác!"
+            }
+
+            // Hiển thị ra thông qua thẻ p "msg"
+            document.getElementById("msg").innerHTML = msg;
+        }
+
+        // Kiểm tra tính đúng đắn của email
+        // Nếu email valid thì trả về True
+        // Nếu không valid thì trả về False
+        function isValidEmail(email_str){
+            console.log("Kiểm tra email: " + email_str);
+            var username = email_str.substring(0,email_str.indexOf("@"));
+            var domain = email_str.substring(email_str.indexOf("@")+1);
+            if (!email_str.includes("@") || username.length < 6 || domain.length < 4){
+                return false;
+            };
+            return true;
+        }
+
+        // Kiểm tra tính đúng đắn của số điện thoại
+        // Nếu email valid thì trả về True
+        // Nếu không valid thì trả về False
+        function isValidPhone(phone_str){
+            console.log("Kiểm tra email: " + phone_str);
+            if (phone_str.length<10){
+                return false;
+            }
+            for (n of phone_str){
+                if (isNaN(n)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    </script>
+</body>
+</html>

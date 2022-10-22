@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="num_inp">Nhap mot so lon hon 5 va nho hon 20: </label>
+    <input id="num" name="num_inp">
+    <button onclick="validate()">Validate</button>
+    <p id="ex"></p>
+    <script>
+        function validate() {
+            var numValue, formMessage;
+            // Lấy value của input với id là "num"
+            numValue = document.getElementById("num").value;
+            // Nếu numValue không phải là một số
+            // hoặc nhỏ hơn 5 hay lớn hơn 20
+            if (isNaN(numValue) || (numValue < 5 || numValue > 20)) {
+                // Hiển thị Not valid
+                formMessage = "Not valid!";
+            } else {
+                // Hiển thị OK
+                formMessage = "OK";
+            }
+            // Đưa thông báo ra màn hình thông qua thẻ p với id là "ex"
+            document.getElementById("ex").innerHTML = formMessage;
+        }
+    </script>
+</body>
+
+</html>
