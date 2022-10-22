@@ -38,12 +38,12 @@
             }
             // Kiểm tra trường nhập email
             var email_val = document.getElementById("txt_email").value;
-            if (!isValidEmail(email_val)){
+            if (! isValidEmail(email_val)){
                 msg = "Trường Email chưa chính xác!"
             }
             // Kiểm tra trường số điện thoại
             var phone_val = document.getElementById("txt_phone").value;
-            if (!isValidPhone(phone_val)){
+            if (! isValidPhone(phone_val)){
                 msg = "Trường Số điện thoại chưa chính xác!"
             }
 
