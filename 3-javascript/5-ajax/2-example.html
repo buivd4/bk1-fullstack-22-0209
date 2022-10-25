@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 <body>
 
   <div>
     <h2>Bang du lieu</h2>
-    <button type="button" onclick="loadDoc()">Lay du lieu tu API</button>
+    <button id="btn1" type="button">Lay du lieu tu API</button>
     <div id="demo"></div>
   </div>
 
   <script>
+    $(document).ready(function (){
+      $("#btn1").click(function(){
+        $.get("https://0c047c8e-e345-43f4-916e-2ea6f41b4dd3.mock.pstmn.io/products", function(data, status){
+          var res = JSON.parse(data);
+          console.log(status);
+          $("#demo").html(
+            `
+              <table border=1>
+              <tr>
+                <th>ID</th>
+                <th>Ten san pham</th>
+                <th>Mo ta</th>
+                <th>Gia thanh</th>
+              </tr>
+              <tr>
+                <td>${res[0].id}</td>
+                <td>${res[0].name}</td>
+                <td>${res[0].description}</td>
+                <td>$${res[0].price}</td>
+              </tr>
+              </table>
+            `
+          );
+        })
+      });
+    });
+
     function loadDoc() {
       // khởi tạo object để gửi/nhận dữ liệu
       const xhttp = new XMLHttpRequest();
