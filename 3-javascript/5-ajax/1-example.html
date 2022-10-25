@@ -10,12 +10,16 @@
 
   <script>
     function loadDoc() {
+      // khởi tạo object để gửi/nhận dữ liệu
       const xhttp = new XMLHttpRequest();
+      // đăng ký sự kiện (onload) của object gửi/nhận dữ liệu
       xhttp.onload = function () {
         document.getElementById("demo").innerHTML =
           this.responseText;
-      }
+      } 
+      // Gán thông tin liên quan đến phương thức & địa chỉ server
       xhttp.open("GET", "https://www.w3schools.com/js/ajax_info.txt");
+      // Gửi dữ liệu
       xhttp.send();
     }
   </script>

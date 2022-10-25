@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div>
+    <h2>Bang du lieu</h2>
+    <button type="button" onclick="loadDoc()">Lay du lieu tu API</button>
+    <div id="demo"></div>
+  </div>
+
+  <script>
+    function loadDoc() {
+      // khởi tạo object để gửi/nhận dữ liệu
+      const xhttp = new XMLHttpRequest();
+      // đăng ký sự kiện (onload) của object gửi/nhận dữ liệu
+      xhttp.onload = function () {
+        var res = JSON.parse(this.responseText);
+        console.log(res);
+        document.getElementById("demo").innerHTML = `
+          <table border=1>
+            <tr>
+              <th>ID</th>
+              <th>Ten san pham</th>
+              <th>Mo ta</th>
+              <th>Gia thanh</th>
+            </tr>
+            <tr>
+              <td>${res[0].id}</td>
+              <td>${res[0].name}</td>
+              <td>${res[0].description}</td>
+              <td>$${res[0].price}</td>
+            </tr>
+          </table>
+        `
+      }
+      // Gán thông tin liên quan đến phương thức & địa chỉ server
+      xhttp.open("GET", "https://0c047c8e-e345-43f4-916e-2ea6f41b4dd3.mock.pstmn.io/products");
+      // Gửi dữ liệu
+      xhttp.send();
+    }
+  </script>
+
+</body>
+
+</html>

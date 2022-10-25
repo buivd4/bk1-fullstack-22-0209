@@ -1,0 +1,18 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /* Upon click this method will be called */
+            console.log("P: "+ $("p"))
+            $("p").click(function () {
+                console.log("Thẻ p đã được click")
+                console.log("This: "+ this)
+                /* Hide action is taken */
+                $(this).hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Sample paragraph</p>
+</body>
