@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./app.js"></script>
+    <script src="./static/js/tailwind-3.1.8.js"></script>
 </head>
+
 <body>
-    
+    <section class="container-lg mt-1 mx-4">
+        <header class="px-2">
+            <p class="text-bold text-xl pb-2">Read Product</p>
+            <hr>
+        </header>
+        <section class="flex flex-col py-2">
+            <button class="h-8 w-40 text-xs text-white bg-blue-500 rounded-md">Create new product</button>
+            <table id="main-table" class="border-collapse border border-slate-300 mt-2">
+                <tr>
+                    <th class="border-collapse border border-slate-300" style="width:5%">ID</th>
+                    <th class="border-collapse border border-slate-300" style="width:20%">Name</th>
+                    <th class="border-collapse border border-slate-300" style="width:20%">Description</th>
+                    <th class="border-collapse border border-slate-300" style="width:10%">Price</th>
+                    <th class="border-collapse border border-slate-300" style="width:35%">Action</th>
+                </tr>
+            </table>
+            <div id="paginate" class="mt-2 flex w-16 h-4 border border-slate-300 rounded-sm text-blue-500 text-xs">
+                <button
+                    class="w-4 border-collapse border-r border-slate-300 hover:bg-blue-500 hover:text-white">1</button>
+                <button
+                    class="w-4 border-collapse border-r border-slate-300 hover:bg-blue-500 hover:text-white">2</button>
+                <button
+                    class="w-4 border-collapse border-r border-slate-300 hover:bg-blue-500 hover:text-white">..</button>
+                <button class="w-4 border-collapse border-slate-300 hover:bg-blue-500 hover:text-white">></button>
+            </div>
+        </section>
+    </section>
+
+    <!--Modal-->
+    <div class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div>
+                <p >Create Product</p>
+                <hr class="mb-4">
+                <div class="flex space-x-2 text-center justify-between items-center">
+                    <div class="w-1/5 flex flex-col space-y-4 justify-center items-start">
+                        <p>ID</p>
+                        <p>Name</p>
+                        <p>Describe</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="w-4/5 flex flex-col space-y-4 justify-center items-center">
+                        <input id="inp_create_id" class="w-full border rounded-sm">
+                        <input id="inp_create_name" class="w-full border rounded-sm">
+                        <input id="inp_create_desc" class="w-full border rounded-sm">
+                        <input id="inp_create_price" class="w-full border rounded-sm">
+                    </div>
+                </div>
+                <hr class="mt-4 mb-1">
+                <div class="flex space-x-2 items-end justify-end">
+                    <button class="w-16 h-6 bg-red-500 rounded-md text-white text-sm">Cancel</button>
+                    <button class="w-16 h-6 bg-blue-500 rounded-md text-white text-sm">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
