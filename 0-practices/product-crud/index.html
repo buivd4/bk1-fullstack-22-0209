@@ -16,7 +16,7 @@
             <hr>
         </header>
         <section class="flex flex-col py-2">
-            <button class="h-8 w-40 text-xs text-white bg-blue-500 rounded-md">Create new product</button>
+            <button class="h-8 w-40 text-xs text-white bg-blue-500 rounded-md" onclick="onCreateBtnClick()">Create new product</button>
             <table id="main-table" class="border-collapse border border-slate-300 mt-2">
                 <tr>
                     <th class="border-collapse border border-slate-300" style="width:5%">ID</th>
@@ -38,8 +38,7 @@
         </section>
     </section>
 
-    <!--Modal-->
-    <div class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
+    <div id="create_modal" class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
         <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <div>
                 <p >Create Product</p>
@@ -60,11 +59,39 @@
                 </div>
                 <hr class="mt-4 mb-1">
                 <div class="flex space-x-2 items-end justify-end">
-                    <button class="w-16 h-6 bg-red-500 rounded-md text-white text-sm">Cancel</button>
-                    <button class="w-16 h-6 bg-blue-500 rounded-md text-white text-sm">Create</button>
+                    <button class="w-16 h-6 bg-red-500 rounded-md text-white text-sm" onclick="onCreateCancelBtnClick()">Cancel</button>
+                    <button class="w-16 h-6 bg-blue-500 rounded-md text-white text-sm" onclick="onCreateSubmitBtnClick()">Create</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="view_modal" class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div>
+                <p >View Product</p>
+                <hr class="mb-4">
+                <div class="flex space-x-2 text-center justify-between items-center">
+                    <div class="w-1/5 flex flex-col space-y-4 justify-center items-start">
+                        <p>ID</p>
+                        <p>Name</p>
+                        <p>Describe</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="w-4/5 flex flex-col space-y-4 justify-center items-center">
+                        <input id="inp_view_id" disabled class="w-full border rounded-sm">
+                        <input id="inp_view_name" disabled class="w-full border rounded-sm">
+                        <input id="inp_view_desc" disabled class="w-full border rounded-sm">
+                        <input id="inp_view_price" disabled class="w-full border rounded-sm">
+                    </div>
+                </div>
+                <hr class="mt-4 mb-1">
+                <div class="flex space-x-2 items-end justify-end">
+                    <button class="w-16 h-6 bg-blue-500 rounded-md text-white text-sm" onclick="onViewOKBtnClick()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./static/js/app.js"></script>
 </body>
 </html>
