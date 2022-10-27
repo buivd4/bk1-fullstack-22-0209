@@ -37,6 +37,8 @@ function actionBtnDOM(product){
     var editBtn = document.createElement("button");
     editBtn.className="w-1/4 h-4 text-xs text-white bg-blue-700 rounded-md"
     editBtn.appendChild(document.createTextNode("Edit"))
+
+    // Delete 
     var deleteBtn = document.createElement("button");
     deleteBtn.className="w-1/4 h-4 text-xs text-white bg-red-500 rounded-md"
     deleteBtn.appendChild(document.createTextNode("Delete"))
@@ -164,3 +166,5 @@ reloadTable()
 /// Event --> Data (products) --> reload()
 ///    |______________________________|
 
+/// Với từng product
+///     Tạo DOM tương ứng (là 1 hàng trong bảng)
