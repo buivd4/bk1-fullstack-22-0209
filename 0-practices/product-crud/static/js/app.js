@@ -1,3 +1,16 @@
+
+/// Khi trình duyệt tải trang -> gọi hàm reloadTable lần đầu
+/// Trong quá trình người dùng sử dụng, luồng xử lý sẽ diễn ra như sau
+///  Sự kiện --> Dữ liệu bị thay đổi (biến products) --> reloadTable() --> Hiển thị dữ liệu
+///    |_____________________________________________________________________|
+
+/// Cách thức hiển thị dữ liệu như sau
+/// Với từng product trong mảng products
+///     Tạo Element tương ứng với dữ liệu (là 1 hàng trong bảng)
+///     Đưa Element vào bảng với phương thức appendChild()
+
+
+
 // Biến chứa dữ liệu
 var products = [
     {
@@ -19,6 +32,59 @@ var products = [
         price: 2.99
     }
 ]
+
+// Hàm dùng để hiển thị/cập nhật lại bảng
+function reloadTable(){
+    var table = document.getElementById("main-table");
+    // Xoá dữ liệu cũ
+    table.innerHTML=`
+        <th class="border-collapse border border-slate-300" style="width:5%">ID</th>
+        <th class="border-collapse border border-slate-300" style="width:20%">Name</th>
+        <th class="border-collapse border border-slate-300" style="width:20%">Description</th>
+        <th class="border-collapse border border-slate-300" style="width:10%">Price</th>
+        <th class="border-collapse border border-slate-300" style="width:35%">Action</th>
+    `;
+    for(var product of products){
+        // Create Product DOM dùng để tạo ra một DOM cho product tương ứng
+        // Mục đích: Tạo ra một row dữ liệu trong bảng
+        table.append(createProductDOM(product));
+        // ^ đưa dữ liệu vào bảng   ^ tạo ra dữ liệu
+    }
+}
+
+
+// Hàm tạo ra một dòng trong bảng
+// Đầu vào: 1 product object
+// Đầu ra:  một Element để chèn vào DOM
+function createProductDOM(product){
+    console.log("Create DOM for product: "+ product.id)
+    // Tạo ra một thẻ tr rỗng
+    var proDOM = document.createElement("tr");
+    // Với từng thuộc tính của product
+    for(var attr in product){
+        // Tạo ra thẻ td để chứa thuộc tính tương ứng
+        var td = document.createElement("td");
+        td.className = "border-collapse border border-slate-300";
+        // Đưa text vào thẻ td
+        var textNode = document.createTextNode(product[attr]);
+        td.appendChild(textNode);
+        // Thêm thẻ td vào thẻ tr
+        proDOM.appendChild(td);
+    }
+    // --> Đến bước này thì đã có thẻ tr chứa đầy đủ thông tin
+    // Cần thêm phần Action
+    // Tạo thẻ td
+    var td = document.createElement("td");
+    td.className = "border-collapse border border-slate-300";
+    // Đưa phần tử để hiển thị phần Action (3 nút xem, sửa và xoá) vào trong td
+    td.appendChild(actionBtnDOM(product))
+    //  ^ đưa dữ liệu vào   ^ Tạo ra Element cho phần Action
+    // Đưa td vào thẻ tr
+    proDOM.append(td);
+    // --> Đến bước này ta đã có 1 hàng đầy đủ thông tin (tr)
+    // Trả về thẻ tr
+    return proDOM;
+}
 
 // Tạo ra phần action gồm 3 nút
 function actionBtnDOM(product){
@@ -45,46 +111,18 @@ function actionBtnDOM(product){
 
     //  Bind event
 
+    // Đưa nút vào thẻ div
     div.appendChild(readBtn);
     div.appendChild(editBtn);
     div.appendChild(deleteBtn);
+    // Trả về thẻ div
     return div;
 }
 
-function createProductDOM(product){
-    console.log("Create DOM for product: "+ product.id)
-    var proDOM = document.createElement("tr");
-    for(var attr in product){
-        var td = document.createElement("td");
-        td.className = "border-collapse border border-slate-300";
-        var textNode = document.createTextNode(product[attr]);
-        td.appendChild(textNode);
-        proDOM.appendChild(td);
-    }
-    var td = document.createElement("td");
-    td.className = "border-collapse border border-slate-300";
-    td.appendChild(actionBtnDOM(product))
-    proDOM.append(td);
-    return proDOM;
-}
+reloadTable()
 
 
-function reloadTable(){
-    var table = document.getElementById("main-table");
-    table.innerHTML=`
-        <th class="border-collapse border border-slate-300" style="width:5%">ID</th>
-        <th class="border-collapse border border-slate-300" style="width:20%">Name</th>
-        <th class="border-collapse border border-slate-300" style="width:20%">Description</th>
-        <th class="border-collapse border border-slate-300" style="width:10%">Price</th>
-        <th class="border-collapse border border-slate-300" style="width:35%">Action</th>
-    `;
-    for(var product of products){
-        // Create Product DOM dùng để tạo ra một DOM cho product tương ứng
-        // Mục đích: Tạo ra một row dữ liệu trong bảng
-        table.append(createProductDOM(product));
-    }
-}
-
+/// Khi làm việc với product, cần tương tác với dữ liệu product
 // Làm việc với dữ liệu
 // Thêm dữ liệu
 function addItem(id, name, desc, price){
@@ -96,6 +134,7 @@ function addItem(id, name, desc, price){
     };
     products.push(newProduct);
     console.log(products);
+    // Cập nhật hiển thị
     reloadTable();
 }
 
@@ -121,13 +160,14 @@ function findItemById(id){
 }
 
 
+/// Lắng nghe sự kiện để hiển thị tương ứng
 function onCreateBtnClick(){
-    // Làm sạch dữ liệu trong bảng
+    // Làm sạch dữ liệu trong form
     document.getElementById("inp_create_id").value=null;
     document.getElementById("inp_create_name").value=null;
     document.getElementById("inp_create_desc").value=null;
     document.getElementById("inp_create_price").value=null;
-
+    // Hiển thị modal bằng cách bỏ class hidden khỏi element tương ứng với phần modal
     document.getElementById("create_modal").classList.remove("hidden");
 }
 
@@ -135,14 +175,16 @@ function onCreateCancelBtnClick(){
     document.getElementById("create_modal").classList.add("hidden");
 }
 
+// Tương ứng với việc người dùng submit dữ liệu lên
 function onCreateSubmitBtnClick(){
     // Lấy dữ liệu từ form ra
     var id = document.getElementById("inp_create_id").value;
     var name = document.getElementById("inp_create_name").value;
     var desc = document.getElementById("inp_create_desc").value;
     var price = document.getElementById("inp_create_price").value;
+    // Thêm dữ liệu vào mảng products
     addItem(id, name, desc, price);
-    console.log(products)
+    // Ẩn modal tạo product bằng cách thêm class hidden vào modal
     document.getElementById("create_modal").classList.add("hidden");
 }
 
@@ -160,11 +202,13 @@ function onViewOKBtnClick(){
     document.getElementById("view_modal").classList.add("hidden");
 }
 
-reloadTable()
+//reloadTable()
 
 
-/// Event --> Data (products) --> reload()
-///    |______________________________|
 
-/// Với từng product
-///     Tạo DOM tương ứng (là 1 hàng trong bảng)
+/// bắt được sự kiện người dùng bấm vào nút Create new product
+/// -> Mở modal cho người dùng nhập liệu
+/// Sau người dùng điền thông tin 
+/// -> bắt sự kiện người dùng bấm nút Create
+/// -> thêm dữ liệu người dùng đã nhập vào trong mảng products
+/// -> cập nhật lại hiển thị thông qua việc dùng hàm reloadTable()
